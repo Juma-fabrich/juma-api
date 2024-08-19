@@ -17,7 +17,7 @@ export class UserService {
             const hashed = hashSync(data.password, 10)
             return await this.db.user.create({ data: { ...data, password: hashed } })
         } catch (error) {
-            throw new InternalServerErrorException(error)
+            throw error
         }
     }
 
