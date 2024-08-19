@@ -8,7 +8,9 @@ async function bootstrap() {
     whitelist: true,
     transform: true
   }))
-  app.enableCors()
+  app.enableCors({
+    origin: process.env.CLIENT
+  })
   await app.listen(3000);
 }
 bootstrap();
